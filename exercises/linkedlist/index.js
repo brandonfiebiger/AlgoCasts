@@ -99,21 +99,14 @@ class LinkedList {
       return;
     }
     if(num === 0) {
-      this.head = this.head.next;
+      this.head = this.head.next.next;
       return;
     }
-    let prevNode;
-    let currNode = this.head;
-    let counter = 0;
-    while(counter < num) {
-      if(!currNode.next) {
-        return;
-      }
-      counter++;
-      prevNode = currNode;
-      currNode = currNode.next;
+    let prevNode = this.getAt(num - 1);
+    if(!prevNode || !prevNode.next) {
+      return
     }
-    prevNode.next = currNode.next;
+    prevNode.next = prevNode.next.next;
   }
 
   insertAt(record, num) {
@@ -131,10 +124,21 @@ class LinkedList {
     for(let i = 0; i <= num; i++) {
       
       prevNode = currNode;
-      currNode = currNode.next
+      if(currNode.next) {
+        currNode = currNode.next;
+      }
     }
     newNode.next = currNode;
     prevNode.next = newNode;
+  }
+
+  forEach(callback) {
+    let currNode = this.head;
+
+    while(currNode) {
+      callback(currNode);
+      currNode = currNode.next;
+    }
   }
 }
 
