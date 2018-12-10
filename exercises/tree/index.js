@@ -39,6 +39,16 @@ class Tree {
       checkArray.shift();
     }
   }
+
+  traverseDF(fn) {
+    let checkArray = [this.root];
+
+    while(checkArray.length) {
+      let node =  checkArray.shift();
+      fn(node);
+      checkArray = [...node.children, ...checkArray];
+    }
+  }
 }
 
 module.exports = { Tree, Node };
