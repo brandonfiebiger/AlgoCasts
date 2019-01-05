@@ -22,8 +22,17 @@
 //   }
 // }
 
+// function reverseInt(n) {
+//   return parseInt(n.toString().split('').reverse().join('')) * Math.sign(n);
+// }
+
+
+
+
+
+
 function reverseInt(n) {
-  return parseInt(n.toString().split('').reverse().join('')) * Math.sign(n);
+  return parseInt(n.toString().split('').reduce((rev, char) => char + rev, '')) * Math.sign(n);
 }
 
 module.exports = reverseInt;
