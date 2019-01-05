@@ -21,19 +21,37 @@
 
 
 
+// function steps(n) {
+
+//   for (let row = 0; row < n; row++) {
+//     let step = "";
+
+//     for(let column = 0; column < n; column++) {
+//       if (column <= row) {
+//         step += "#"
+//       } else {
+//         step += " ";
+//       }
+//     }
+//     console.log(step)
+//   }
+// }
+
+
+
+
+
 function steps(n) {
-
-  for (let row = 0; row < n; row++) {
-    let step = "";
-
-    for(let column = 0; column < n; column++) {
-      if (column <= row) {
-        step += "#"
+  for (let i = 0; i < n; i++) {
+    let step = '';
+    for (let j = 0; j < n; j++) {
+      if (j <= i) {
+        step += '#';
       } else {
-        step += " ";
+        step += ' '
       }
     }
-    console.log(step)
+    console.log(step);
   }
 }
 
