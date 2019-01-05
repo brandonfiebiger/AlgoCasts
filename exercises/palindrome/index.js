@@ -11,12 +11,17 @@
 //   return str === str.split('').reduce((reversed, char) => char + reversed, '');
 // }
 
-function palindrome(str) {
-  return str.split('').every((char, i) => char === str[str.length - i - 1])
-}
+// function palindrome(str) {
+//   return str.split('').every((char, i) => char === str[str.length - i - 1])
+// }
+
+
+
+
+
 
 function palindrome(str) {
-
+  return str === str.split('').reduce((rev, char) => char + rev, '');
 }
 
 module.exports = palindrome;
