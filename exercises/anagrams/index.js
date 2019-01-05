@@ -24,12 +24,39 @@
 //   return stringA.split('').every((char) => charMap1[char] === charMap2[char])
 // }
 
+// function anagrams(stringA, stringB) {
+//   return sorter(stringA) === sorter(stringB);
+// }
+
+// function sorter(string) {
+//   return string.replace(/[^\w]/g, "").toLowerCase().split('').sort().join('')
+// }
+
+
+
 function anagrams(stringA, stringB) {
-  return sorter(stringA) === sorter(stringB);
+  stringA.replace(/[^\w]/g, '').toLowerCase();
+  stringB.replace(/[^\w]/g, '').toLowerCase();
+
+  return stringA.split('').sort().join('') === stringB.split('').sort().join('');
 }
 
-function sorter(string) {
-  return string.replace(/[^\w]/g, "").toLowerCase().split('').sort().join('')
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = anagrams;
