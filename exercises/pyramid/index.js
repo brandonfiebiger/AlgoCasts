@@ -16,19 +16,40 @@
 
 
 
+// function pyramid(n) {
+//   const center = Math.floor((2 * n -1) / 2);
+
+//   for (let row = 0; row < n; row++) {
+//     let layer = '';
+//     for (let column = 0; column < 2 * n - 1; column ++) {
+//       if(column <= center + row && column >= center - row) {
+//         layer += '#';
+//       } else {
+//         layer += ' ';
+//       }
+//     }
+//     console.log(layer);
+//   }
+// }
+
+
+
+
+
 function pyramid(n) {
   const center = Math.floor((2 * n -1) / 2);
 
   for (let row = 0; row < n; row++) {
-    let layer = '';
-    for (let column = 0; column < 2 * n - 1; column ++) {
-      if(column <= center + row && column >= center - row) {
-        layer += '#';
+    let level = '';
+
+    for (let column = 0; column < 2 * n -1; column++) {
+      if (center - row <= column && center + row >= column) {
+        level += '#';
       } else {
-        layer += ' ';
+        level += ' ';
       }
     }
-    console.log(layer);
+    console.log(level);
   }
 }
 
