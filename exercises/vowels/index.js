@@ -12,9 +12,46 @@
 //   return str.split('').filter(letter => vowels.includes(letter.toLowerCase())).length;
 // }
 
+// function vowels(str) {
+//   const matches = str.match(/[aeiou]/gi);
+//   return matches ? matches.length : 0;
+// }
+
+
+
+
+
+
+
+
+
+
+// function vowels(str) {
+//   let counter = 0;
+//   let checker = ['a', 'e', 'i', 'o', 'u'];
+
+//   for (let letter of str.split('')) {
+//     if (checker.includes(letter.toLowerCase())) {
+//       counter++;
+//     }
+//   }
+//   return counter;
+// }
+
+
 function vowels(str) {
   const matches = str.match(/[aeiou]/gi);
   return matches ? matches.length : 0;
 }
+
+
+
+
+
+
+
+
+
+
 
 module.exports = vowels;
