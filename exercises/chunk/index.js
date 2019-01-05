@@ -18,14 +18,30 @@
 
 
 
+// function chunk(array, size) {
+
+//   let result = [];
+
+//   for (let i = 0; i < array.length; i+=size) {
+//     result.push(array.slice(i, i + size));
+//   }
+//   return result;
+// }
+
+
 function chunk(array, size) {
+  const chunked = [];
 
-  let result = [];
+  for (let el of array) {
+    let last = chunked[chunked.length - 1];
 
-  for (let i = 0; i < array.length; i+=size) {
-    result.push(array.slice(i, i + size));
+    if (!last || last.length === size) {
+      chunked.push([el]);
+    } else {
+      last.push(el);
+    }
   }
-  return result;
+  return chunked;
 }
 
 
