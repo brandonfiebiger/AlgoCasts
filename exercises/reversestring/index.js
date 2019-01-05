@@ -27,8 +27,25 @@
 //   return reversed;
 // }
 
+// function reverse(str) {
+//   return str.split('').reduce((reversed, char) => char + reversed, '')
+// }
+
+
+
+
+// function reverse(str) {
+//   let newString = [];
+
+//   for (let i = str.length; i >= 0; i--) {
+//     newString.push(str[i])
+//   }
+
+//   return newString.join('');
+// }
+
 function reverse(str) {
-  return str.split('').reduce((reversed, char) => char + reversed, '')
+  return str.split('').reduce((reversedString, char) => char + reversedString, '')
 }
 
 module.exports = reverse;
