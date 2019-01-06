@@ -8,25 +8,14 @@
 // Example:
 //   fib(4) === 3
 
-// function fib(n) {
-//   const result = [0, 1];
+function fib(n) {
 
-//   for (let i = 2; i <= n; i++) {
-//     const a = result[result.length -1];
-//     const b = result[result.length - 2];
-//     result[i] = a + b;
-//   }
-//   return result[n];
-// }
+  let result = [0, 1];
 
-function fib(n, result = [0, 1]) {
-
-  while (result.length <= n) {
-    const a = result[result.length - 1];
-    const b = result[result.length - 2];
-    result[result.length] = a + b;
-    return fib(n, result)
+  for (let i = 2; i <= n; i++) {
+    result[i] = result[i-1] + result[i-2];
   }
+
   return result[n];
 }
 
