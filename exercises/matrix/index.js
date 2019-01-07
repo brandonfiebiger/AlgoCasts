@@ -21,55 +21,64 @@
 
 
 function matrix(n) {
-  let result = [];
+  //initialize empty results array
+  let results = [];
 
+  //push n amount of empty arrays into results
   for (let i = 0; i < n; i++) {
-    result.push([]);
+    results.push([]);
   }
-
+  //initialize startRow startColumn endRow and endColumn variables
   let counter = 1;
   let startRow = 0;
   let endRow = n - 1;
   let startColumn = 0;
   let endColumn = n - 1;
 
+  while (startRow <= endRow && startColumn <= endColumn) {
 
-  while (startRow <= endRow && startColumn <= endColumn){
+    //top row
 
-    //top
-    
-    for (let i = startColumn; i <= endColumn; i ++) {
-      result[startRow][i] = counter;
+    for (let i = startColumn; i <= endColumn; i++) {
+      results[startRow][i] = counter;
       counter++;
     }
-    startRow++;
-    
+    //increment startRow
+    startRow++
+
     //right side
-    
+
     for (let i = startRow; i <= endRow; i++) {
-      result[i][endRow] = counter;
+      results[i][endColumn] = counter;
       counter++;
     }
+
+    //decrement endColumn
     endColumn--;
-    
-    //bottom
-    
+
+    //bottom row
+
     for (let i = endColumn; i >= startColumn; i--) {
-      result[endRow][i] = counter;
+      results[endRow][i] = counter;
       counter++;
     }
+
+    //decrement endRow
     endRow--;
-    
-    //left
-    
+
+    //left side 
+
     for (let i = endRow; i >= startRow; i--) {
-      result[i][startColumn] = counter;
+      results[i][startColumn] = counter;
       counter++;
     }
+    
+    //increment start column
     startColumn++;
+
   }
-  return result;
-  
+  console.log(results);
+  return results;
 }
 
 module.exports = matrix;
