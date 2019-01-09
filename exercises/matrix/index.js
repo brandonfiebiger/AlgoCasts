@@ -21,14 +21,13 @@
 
 
 function matrix(n) {
-  //initialize empty results array
-  let results = [];
+  
+  const results = [];
 
-  //push n amount of empty arrays into results
   for (let i = 0; i < n; i++) {
     results.push([]);
   }
-  //initialize startRow startColumn endRow and endColumn variables
+
   let counter = 1;
   let startRow = 0;
   let endRow = n - 1;
@@ -38,46 +37,37 @@ function matrix(n) {
   while (startRow <= endRow && startColumn <= endColumn) {
 
     //top row
-
     for (let i = startColumn; i <= endColumn; i++) {
       results[startRow][i] = counter;
       counter++;
     }
-    //increment startRow
-    startRow++
+
+    startRow++;
 
     //right side
-
     for (let i = startRow; i <= endRow; i++) {
       results[i][endColumn] = counter;
       counter++;
     }
 
-    //decrement endColumn
     endColumn--;
 
     //bottom row
-
     for (let i = endColumn; i >= startColumn; i--) {
       results[endRow][i] = counter;
       counter++;
     }
 
-    //decrement endRow
     endRow--;
 
-    //left side 
-
+    //left side
     for (let i = endRow; i >= startRow; i--) {
       results[i][startColumn] = counter;
       counter++;
     }
-    
-    //increment start column
-    startColumn++;
 
+    startColumn++
   }
-  console.log(results);
   return results;
 }
 
