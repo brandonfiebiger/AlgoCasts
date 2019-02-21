@@ -5,6 +5,45 @@
 // maxChar("abcccccccd") === "c"
 // maxChar("apple 1231111") === "1"
 
+
+
+const maxChar = (str) => {
+
+  let checkObj = {};
+  let max = 0;
+  let result;
+
+  for (let char of str) {
+    checkObj[char] ? checkObj[char]++ : checkObj[char] = 1;
+    if (checkObj[char] > max) {
+      max = checkObj[char];
+      result = char;
+    }
+  }
+    return result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // function maxChar(str) {
 //   let chars = {};
 //   for(const char of str) {
@@ -38,25 +77,25 @@
 
 
 
-function maxChar(str) {
-  let chars = {};
+// function maxChar(str) {
+//   let chars = {};
 
-  for (let char of str) {
-    chars[char] = chars[char] + 1 || 1
-  }
+//   for (let char of str) {
+//     chars[char] = chars[char] + 1 || 1
+//   }
 
-  let counter = 0;
-  let max = ''
+//   let counter = 0;
+//   let max = ''
   
-  for (let char in chars) {
-    if(chars[char] > counter) {
-      counter = chars[char];
-      max = char
-    }
-  }
+//   for (let char in chars) {
+//     if(chars[char] > counter) {
+//       counter = chars[char];
+//       max = char
+//     }
+//   }
 
-  return max;
-}
+//   return max;
+// }
 
 
 
