@@ -1,7 +1,18 @@
 // --- Directions
 // Implement bubbleSort, selectionSort, and mergeSort
 
-// const bubbleSort = () => {};
+const bubbleSort = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - i; j++) {
+      if (arr[j] > arr[j+1]) {
+        let temp = arr[j+1];
+        arr[j+1] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  }
+  return arr;
+};
 
 
 const selectionSort = (arr) => {
@@ -73,18 +84,18 @@ const mergeSort = (arr) => {
 
 
 
-function bubbleSort(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < (arr.length - i - 1); j++) {
-      let placeHolder = arr[j];
-      if(placeHolder > arr[j + 1]) {
-        arr[j] = arr[j + 1];
-        arr[j + 1] = placeHolder;
-      }
-    }
-  }
-  return arr;
-}
+// function bubbleSort(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < (arr.length - i - 1); j++) {
+//       let placeHolder = arr[j];
+//       if(placeHolder > arr[j + 1]) {
+//         arr[j] = arr[j + 1];
+//         arr[j + 1] = placeHolder;
+//       }
+//     }
+//   }
+//   return arr;
+// }
 
 // function selectionSort(arr) {
 //   for (let i = 0; i < arr.length; i++) {
