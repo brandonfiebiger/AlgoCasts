@@ -1,82 +1,136 @@
 // --- Directions
 // Implement bubbleSort, selectionSort, and mergeSort
 
-function bubbleSort(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < (arr.length - i - 1); j++) {
-      let placeHolder = arr[j];
-      if(placeHolder > arr[j + 1]) {
-        arr[j] = arr[j + 1];
-        arr[j + 1] = placeHolder;
-      }
-    }
-  }
-  return arr;
-}
-
-function selectionSort(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    let indexofMin = i;
-    for (let j = i+1; j < arr.length; j++) {
-      if (arr[j] < arr[indexofMin]) {
-        indexofMin = j;
-      }
-    }
-    if (arr[indexofMin] !== arr[i]) {
-      let placeHolder = arr[i];
-      arr[i] = arr[indexofMin];
-      arr[indexofMin] = placeHolder;
-    }
-  }
-  return arr;
-}
+const bubbleSort = () => {};
+const selectionSort = () => {};
 
 
 
 
+//implement merge function which will successfully merge two sorted arrays
 
-
-
-
-
-function merge(left, right) {
+const merge = (left, right) => {
   //initialize empty results array
-  let results = [];
-  // while there are still elements in the left and right arrays
+  const results = [];
+  //while there are still elements in each array
   while (left.length && right.length) {
-    //if the first element of the left array is less than the first element in the right array
     if (left[0] < right[0]) {
-      // Shift the first element off of the left array and push it into the results array
       results.push(left.shift());
     } else {
-      //otherwise Shift the first element out of the right array and push it into the results array
       results.push(right.shift());
     }
   }
-  //at last return a new array spreading in the results array first
-  //then spread in what's left of the right && left arrays, it does not matter which
-  //order because at least one of them has to be empty
-  return [...results, ...right, ...left];
+  return [...results, ...left, ...right];
 }
 
-function mergeSort(arr) {
-  //setup base case for recursion
-  // if the length of the array is exactly one, we will return it
+//Implement mergeSort function which will recursively break down the array
+//until there is only one element left
+
+const mergeSort = (arr) => {
+
+  //base case
   if (arr.length === 1) {
     return arr;
-  }
-  //find the center of the array and slice it into two halves to feed
-  //to the merge function
+  };
+
+  //find center of the array
   const center = Math.floor(arr.length / 2);
+
+  //divide array into left and right side
   const left = arr.slice(0, center);
   const right = arr.slice(center);
 
-  //return a recursive call to merge and mergSort
-  //this will break down the array until there is one element and 
-  //return all of those single elements which will all
-  //be joined and sorted by the recursive call to merge being returned
+  //execute recursive call to merge passing in mergeSort(left) and mergeSort(right)
+  // as arguments
+
   return merge(mergeSort(left), mergeSort(right));
-}
+
+};
+
+
+
+
+
+
+
+
+
+// function bubbleSort(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < (arr.length - i - 1); j++) {
+//       let placeHolder = arr[j];
+//       if(placeHolder > arr[j + 1]) {
+//         arr[j] = arr[j + 1];
+//         arr[j + 1] = placeHolder;
+//       }
+//     }
+//   }
+//   return arr;
+// }
+
+// function selectionSort(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     let indexofMin = i;
+//     for (let j = i+1; j < arr.length; j++) {
+//       if (arr[j] < arr[indexofMin]) {
+//         indexofMin = j;
+//       }
+//     }
+//     if (arr[indexofMin] !== arr[i]) {
+//       let placeHolder = arr[i];
+//       arr[i] = arr[indexofMin];
+//       arr[indexofMin] = placeHolder;
+//     }
+//   }
+//   return arr;
+// }
+
+
+
+
+
+
+
+
+
+// function merge(left, right) {
+//   //initialize empty results array
+//   let results = [];
+//   // while there are still elements in the left and right arrays
+//   while (left.length && right.length) {
+//     //if the first element of the left array is less than the first element in the right array
+//     if (left[0] < right[0]) {
+//       // Shift the first element off of the left array and push it into the results array
+//       results.push(left.shift());
+//     } else {
+//       //otherwise Shift the first element out of the right array and push it into the results array
+//       results.push(right.shift());
+//     }
+//   }
+//   //at last return a new array spreading in the results array first
+//   //then spread in what's left of the right && left arrays, it does not matter which
+//   //order because at least one of them has to be empty
+//   return [...results, ...right, ...left];
+// }
+
+// function mergeSort(arr) {
+//   //setup base case for recursion
+//   // if the length of the array is exactly one, we will return it
+//   if (arr.length === 1) {
+//     return arr;
+//   }
+//   //find the center of the array and slice it into two halves to feed
+//   //to the merge function
+//   const center = Math.floor(arr.length / 2);
+//   const left = arr.slice(0, center);
+//   const right = arr.slice(center);
+
+//   //return a recursive call to merge and mergSort
+//   //this will break down the array until there is one element and 
+//   //return all of those single elements which will all
+//   //be joined and sorted by the recursive call to merge being returned
+//   return merge(mergeSort(left), mergeSort(right));
+// }
 
 
 
