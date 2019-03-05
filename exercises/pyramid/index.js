@@ -16,6 +16,67 @@
 
 
 
+const pyramid = (n, row = 0, level = '') => {
+
+  if (row === n) {
+    return;
+  }
+
+  const center = Math.floor((2 * n - 1) / 2);
+
+  if (level.length === (2 * n - 1)) {
+    console.log(level);
+    return pyramid(n, row + 1, '');
+  }
+
+  if (center - row <= level.length && center + row >= level.length) {
+    level += '#';
+  } else {
+    level += ' ';
+  }
+
+  pyramid(n, row, level);
+}
+
+
+
+
+
+
+
+
+
+
+// const pyramid = (n) => {
+
+//   const center = Math.floor((2 * n - 1) / 2);
+
+//   for (let row = 0; row < n; row++) {
+//     let step = "";
+    
+//     for (let column = 0; column < (2 * n - 1); column++) {
+//       if (column <= row + center && column >= center - row) {
+//         step += '#';
+//       } else {
+//         step += ' ';
+//       }
+//     }
+//     console.log(step);
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
 // function pyramid(n) {
 //   const center = Math.floor((2 * n -1) / 2);
 
@@ -54,28 +115,28 @@
 // }
 
 
-function pyramid(n, row = 0, level = '') {
+// function pyramid(n, row = 0, level = '') {
 
-  if (row === n) {
-    return;
-  }
+//   if (row === n) {
+//     return;
+//   }
 
-  if (level.length === n * 2 - 1) {
-    console.log(level);
-    return pyramid(n, row + 1, level = '');
-  }
+//   if (level.length === n * 2 - 1) {
+//     console.log(level);
+//     return pyramid(n, row + 1, level = '');
+//   }
 
-  const center = Math.floor((2 * n - 1) / 2);
+//   const center = Math.floor((2 * n - 1) / 2);
 
-  if (center - row <= level.length && center + row >= level.length) {
-    level += '#';
-  } else {
-    level += ' ';
-  }
+//   if (center - row <= level.length && center + row >= level.length) {
+//     level += '#';
+//   } else {
+//     level += ' ';
+//   }
 
-  return pyramid(n, row, level);
+//   return pyramid(n, row, level);
 
-}
+// }
 
 
 
