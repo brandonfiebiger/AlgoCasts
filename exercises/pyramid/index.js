@@ -16,27 +16,60 @@
 
 
 
-const pyramid = (n, row = 0, level = '') => {
-
-  if (row === n) {
-    return;
-  }
-
+const pyramid = (n) => {
   const center = Math.floor((2 * n - 1) / 2);
 
-  if (level.length === (2 * n - 1)) {
+  for (let row = 0; row < n; row++) {
+    let level = '';
+
+    for (let column = 0; column < (2 * n - 1); column++) {
+      if (center - row <= column && center + row >= column) {
+        level += '#';
+      } else {
+        level += ' ';
+      }
+    }
     console.log(level);
-    return pyramid(n, row + 1, '');
   }
-
-  if (center - row <= level.length && center + row >= level.length) {
-    level += '#';
-  } else {
-    level += ' ';
-  }
-
-  pyramid(n, row, level);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const pyramid = (n, row = 0, level = '') => {
+
+//   if (row === n) {
+//     return;
+//   }
+
+//   const center = Math.floor((2 * n - 1) / 2);
+
+//   if (level.length === (2 * n - 1)) {
+//     console.log(level);
+//     return pyramid(n, row + 1, '');
+//   }
+
+//   if (center - row <= level.length && center + row >= level.length) {
+//     level += '#';
+//   } else {
+//     level += ' ';
+//   }
+
+//   pyramid(n, row, level);
+// }
 
 
 
