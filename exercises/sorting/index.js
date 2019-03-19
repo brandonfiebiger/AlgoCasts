@@ -38,43 +38,81 @@ const selectionSort = (arr) => {
 
 //implement merge function which will successfully merge two sorted arrays
 
+// const merge = (left, right) => {
+//   //initialize empty results array
+//   const results = [];
+//   //while there are still elements in each array
+//   while (left.length && right.length) {
+//     if (left[0] < right[0]) {
+//       results.push(left.shift());
+//     } else {
+//       results.push(right.shift());
+//     }
+//   }
+//   return [...results, ...left, ...right];
+// }
+
+// //Implement mergeSort function which will recursively break down the array
+// //until there is only one element left
+
+// const mergeSort = (arr) => {
+
+//   //base case
+//   if (arr.length === 1) {
+//     return arr;
+//   };
+
+//   //find center of the array
+//   const center = Math.floor(arr.length / 2);
+
+//   //divide array into left and right side
+//   const left = arr.slice(0, center);
+//   const right = arr.slice(center);
+
+//   //execute recursive call to merge passing in mergeSort(left) and mergeSort(right)
+//   // as arguments
+
+//   return merge(mergeSort(left), mergeSort(right));
+
+// };
+
+
+
+
+
+
+
+const mergeSort = (arr) => {
+
+  if (arr.length === 1) {
+    return arr;
+  }
+
+  const center = Math.floor(arr.length / 2);
+  const left = arr.slice(0, center);
+  const right = arr.slice(center);
+
+  return merge(mergeSort(left), mergeSort(right));
+}
+
+
+
 const merge = (left, right) => {
-  //initialize empty results array
   const results = [];
-  //while there are still elements in each array
-  while (left.length && right.length) {
+
+  while(left.length && right.length) {
     if (left[0] < right[0]) {
       results.push(left.shift());
     } else {
       results.push(right.shift());
     }
   }
+
   return [...results, ...left, ...right];
 }
 
-//Implement mergeSort function which will recursively break down the array
-//until there is only one element left
 
-const mergeSort = (arr) => {
 
-  //base case
-  if (arr.length === 1) {
-    return arr;
-  };
-
-  //find center of the array
-  const center = Math.floor(arr.length / 2);
-
-  //divide array into left and right side
-  const left = arr.slice(0, center);
-  const right = arr.slice(center);
-
-  //execute recursive call to merge passing in mergeSort(left) and mergeSort(right)
-  // as arguments
-
-  return merge(mergeSort(left), mergeSort(right));
-
-};
 
 
 
